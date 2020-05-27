@@ -1,3 +1,19 @@
+## 4.1.0 (2020-05-27)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.0)
+
+*  [FEATURE] Show the updated_at timestamp of the configuration value *(Lewis Voncken)*
+
+
+## 4.0.1 (2020-05-27)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.0.1)
+
+*  [BUGFIX] Solved Missing Configuration because of Illegal string offset 'value' *(Mr. Lewis)*
+*  [REFACTOR] Added if statement instead of error suppression *(Lewis Voncken)*
+*  [DOCS] Updated the CHANGELOG.md *(Lewis Voncken)*
+
+
 ## 4.0.0 (2020-05-14)
 
 [View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.0.0)
