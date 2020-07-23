@@ -147,6 +147,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
             $optionsByValue = [];
             foreach($field->getOptions() as $option) {
+                // Magento Enterprise modules can have different configuration value/label structure
+                if ($option instanceof \Magento\Framework\Phrase) {
+                    $option = [
+                        'value' => $id,
+                        'label' => $option
+                    ];
+                }
                 if (isset($option['value'])) {
                     $optionsByValue[$option['value']] = $option;
                 }
