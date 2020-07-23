@@ -146,7 +146,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             $labels = []; //reset labels so we can add human-friendly labels
 
             $optionsByValue = [];
-            foreach($field->getOptions() as $option) {
+            foreach($field->getOptions() as $id => $option) {
                 // Magento Enterprise modules can have different configuration value/label structure
                 if ($option instanceof \Magento\Framework\Phrase) {
                     $option = [
