@@ -1,3 +1,9 @@
+## 4.1.1 (2020-07-28)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.1)
+
+* [BUGFIX] Restructure config option value/label mapping for Magento Commerce *(Matthijs Breed)*
+
 ## 4.1.0 (2020-05-27)
 
 [View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.0)
