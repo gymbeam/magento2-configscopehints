@@ -276,7 +276,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         foreach($overridden as $overriddenScope) {
             $scope = $overriddenScope['scope'];
             $scopeId = $overriddenScope['scope_id'];
-            $value = $overriddenScope['value'];
             $valueLabel = $overriddenScope['display_value'];
             $updatedAt = $overriddenScope['updated_at'];
             $scopeLabel = $scopeId;

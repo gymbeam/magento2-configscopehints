@@ -1,8 +1,25 @@
+## 4.1.3 (2020-10-15)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.3)
+
+*  [REFACTOR] Removed unused code or added suppression when unused code is allowed and applied phpcs fixes *(Lewis Voncken)*
+
+
+## 4.1.2 (2020-08-14)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.2)
+
+*  Install from Experius repo *(Sipos András)*
+
+
 ## 4.1.1 (2020-07-28)
 
 [View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.1)
 
-* [BUGFIX] Restructure config option value/label mapping for Magento Commerce *(Matthijs Breed)*
+*  [BUGFIX] [MSBS-106] Restructure config option value/label mapping *(Matthijs Breed)*
+*  Update Data.php *(Matthijs Breed)*
+*  Update CHANGELOG.md *(Experius)*
+
 
 ## 4.1.0 (2020-05-27)
 

@@ -2,7 +2,7 @@
 
 namespace EW\ConfigScopeHints\Plugin\Framework\Data\Form\Element;
 
-use \Magento\Framework\Data\Form\Element\Fieldset as OriginalFieldset;
+use Magento\Framework\Data\Form\Element\Fieldset as OriginalFieldset;
 
 class Fieldset
 {
@@ -23,8 +23,7 @@ class Fieldset
     public function __construct(
         \EW\ConfigScopeHints\Helper\Data $helper,
         \Magento\Framework\App\RequestInterface $request
-    )
-    {
+    ) {
         $this->helper = $helper;
         $this->request = $request;
     }
@@ -36,7 +35,8 @@ class Fieldset
      * @param array $config
      * @return bool
      */
-    protected function isConfigValid(array $config) {
+    protected function isConfigValid(array $config)
+    {
         return isset($config['field_config'])
             && isset($config['field_config']['path'])
             && isset($config['field_config']['id'])
@@ -56,9 +56,18 @@ class Fieldset
      * @param bool $after
      * @param bool $isAdvanced
      * @return \Magento\Framework\Data\Form\Element\AbstractElement
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function aroundAddField(OriginalFieldset $subject, callable $proceed, $elementId, $type, $config, $after = false, $isAdvanced = false) {
-        if($this->isConfigValid($config)) {
+    public function aroundAddField(
+        OriginalFieldset $subject,
+        callable $proceed,
+        $elementId,
+        $type,
+        $config,
+        $after = false,
+        $isAdvanced = false
+    ) {
+        if ($this->isConfigValid($config)) {
             $path = $config['field_config']['path'] . '/' . $config['field_config']['id'];
             $scope = $config['scope'];
             $scopeId = $config['scope_id'];
@@ -71,7 +80,7 @@ class Fieldset
                 $scopeId
             );
 
-            if(!empty($overriddenLevels)) {
+            if (!empty($overriddenLevels)) {
                 $config['comment'] .= $this->helper->formatOverriddenScopes($section, $overriddenLevels);
             }
         }
