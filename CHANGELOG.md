@@ -1,3 +1,10 @@
+## 4.1.4 (2020-10-21)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.4)
+
+*  [REFACTOR] [BACI-157] Removed setup_version from module.xml *(Lewis Voncken)*
+
+
 ## 4.1.3 (2020-10-15)
 
 [View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.3)
