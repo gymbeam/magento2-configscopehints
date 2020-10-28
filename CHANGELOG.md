@@ -1,3 +1,10 @@
+## 4.1.5 (2020-10-28)
+
+[View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.5)
+
+*  [FEATURE] Added CopyRight and declare strict *(Lewis Voncken)*
+
+
 ## 4.1.4 (2020-10-21)
 
 [View Release](git@github.com:experius/magento2-configscopehints.git/commits/tag/4.1.4)
