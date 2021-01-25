@@ -164,12 +164,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                 }
             }
 
-            $values = explode(',', $value);
+            if (is_array($value)) {
+                $values = explode(',', $value);
 
-            foreach($values as $valueInstance) {
-                $labels[] = isset($optionsByValue[$valueInstance])
-                    ? $optionsByValue[$valueInstance]['label'] : $valueInstance;
+                foreach ($values as $valueInstance) {
+                    $labels[] = isset($optionsByValue[$valueInstance])
+                        ? $optionsByValue[$valueInstance]['label'] : $valueInstance;
 
+                }
             }
         }
 
