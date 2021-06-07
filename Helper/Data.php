@@ -147,35 +147,47 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         /** @var \Magento\Config\Model\Config\Structure\Element\Field $field */
         $field = $this->configStructure->getElement($path);
 
-        if($field->getOptions()) {
-            $labels = []; //reset labels so we can add human-friendly labels
+        if (!$field->getOptions()) {
+            return $labels;
+        }
 
-            $optionsByValue = [];
-            foreach($field->getOptions() as $id => $option) {
-                // Magento Enterprise modules can have different configuration value/label structure
-                if ($option instanceof \Magento\Framework\Phrase) {
-                    $option = [
-                        'value' => $id,
-                        'label' => $option
-                    ];
-                }
-                if (!isset($option['value'])){
-                    continue;
-                }
-                if (is_array($option['value'])) {
-                    $option['value'] = json_encode($option['value']);
-                }
-                $optionsByValue[$option['value']] = $option;
+        $labels = []; //reset labels so we can add human-friendly labels
+        $optionsByValue = [];
+
+        foreach ($field->getOptions() as $id => $option) {
+            // Magento Enterprise modules can have different configuration value/label structure
+            if ($option instanceof \Magento\Framework\Phrase) {
+                $option = [
+                    'value' => $id,
+                    'label' => $option
+                ];
             }
 
-            if (is_array($value)) {
-                $values = explode(',', $value);
+            if ($option['value'] === '') {
+                continue;
+            }
 
-                foreach ($values as $valueInstance) {
-                    $labels[] = isset($optionsByValue[$valueInstance])
-                        ? $optionsByValue[$valueInstance]['label'] : $valueInstance;
-
+            if (isset($option['value'])) {
+                if (is_array($option['value'])) {
+                    foreach ($option['value'] as $v) {
+                        if ($v['value'] == '') {
+                            continue;
+                        }
+                        $optionsByValue[$v['value']] = $v;
+                    }
+                } else {
+                    $optionsByValue[$option['value']] = $option;
                 }
+            }
+        }
+
+        if (in_array($field->getType(), ['multiselect', 'select'])) {
+            $values = explode(',', $value);
+
+            foreach ($values as $valueInstance) {
+                $labels[] = isset($optionsByValue[$valueInstance])
+                    ? $optionsByValue[$valueInstance]['label'] : $valueInstance;
+
             }
         }
 

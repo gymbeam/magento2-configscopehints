@@ -38,6 +38,7 @@
     .override-value {
         &.visible {
             display: block;
+            position: relative;
         }
 
         span.override-value-hint-label {
@@ -50,9 +51,12 @@
         padding-left: 40px;
     }
 }
-
+p.value-hint {
+    position: relative;
+    min-height: 15px;
+}
 span.config-updated-at {
-    bottom: -1.3rem;
+    bottom: 0.3rem;
     color: #808080;
     font-size: 1.1rem;
     font-weight: 400;
@@ -60,4 +64,5 @@ span.config-updated-at {
     position: absolute;
     right: 0;
     text-transform: lowercase;
+    text-align: right;
 }
