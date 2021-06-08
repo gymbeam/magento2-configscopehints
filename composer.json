@@ -1,5 +1,5 @@
 {
-    "name": "experius/magento2-configscopehints",
+    "name": "ekalinak/magento2-configscopehints",
     "description": "Magento 2 store config override hints module",
     "require": {
         "magento/framework": "*",
