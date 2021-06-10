@@ -163,21 +163,26 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                 ];
             }
 
+            if (!isset($option['value'])) {
+                continue;
+            }
+
             if ($option['value'] === '') {
                 continue;
             }
 
-            if (isset($option['value'])) {
-                if (is_array($option['value'])) {
-                    foreach ($option['value'] as $v) {
-                        if ($v['value'] == '') {
-                            continue;
-                        }
-                        $optionsByValue[$v['value']] = $v;
+            if (is_array($option['value'])) {
+                foreach ($option['value'] as $v) {
+                    if (!isset($v['value'])) {
+                        continue;
                     }
-                } else {
-                    $optionsByValue[$option['value']] = $option;
+                    if ($v['value'] === '') {
+                        continue;
+                    }
+                    $optionsByValue[$v['value']] = $v;
                 }
+            } else {
+                $optionsByValue[$option['value']] = $option;
             }
         }
 
