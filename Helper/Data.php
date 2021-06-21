@@ -274,7 +274,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         if(count($labels) == 1) {
             //if only one value, simply return it
             return '<span class="override-value-hint-label">' .
-                nl2br($this->escaper->escapeHtml($labels[0])) .
+            is_array($labels[0])
+                ? nl2br(json_encode($labels[0]))
+                : nl2br($this->escaper->escapeHtml($labels[0])) .
                 '</span>';
         }
 
