@@ -186,7 +186,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             }
         }
 
-        if (in_array($field->getType(), ['multiselect', 'select'])) {
+        if (is_string($value) && in_array($field->getType(), ['multiselect', 'select'])) {
             $values = explode(',', $value);
 
             foreach ($values as $valueInstance) {
